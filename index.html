@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christian Simo - Contact</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #4b1e1e, #7b2d26, #a63d2a);
+        color: #f5f1e6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+
+      .card {
+        background: rgba(255, 248, 230, 0.95);
+        padding: 50px 40px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        color: #3e2723;
+        animation: fadeInUp 1s ease forwards;
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Subtle floating effect */
+      .card:hover {
+        transform: translateY(-5px);
+        transition: 0.3s ease;
+      }
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        transform: scale(1.4);
+      }
+
+      h1 {
+        margin: 10px 0 5px;
+        color: black; /* Burgundy */
+      }
+
+      p {
+        opacity: 0.9;
+        margin: 5px 0 20px;
+        color: black; /* Warm brown */
+        font-weight: 500;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s ease;
+      }
+
+      .primary {
+        background: #e97a18f2;
+        color: white;
+      }
+
+      .primary:hover {
+        background: #e97a18cd; /* Gold */
+        color: white;
+      }
+
+      .secondary {
+        background: #5c1a1b; /* Deep wine */
+        color: #f5f1e6;
+      }
+
+      .secondary:hover {
+        background: #7b2d26;
+      }
+
+      @media (max-width: 480px) {
+        .card {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="Christian2.jpeg" alt="Photo Christian" />
+
+      <h1>Christian Simo</h1>
+      <p>Chef Privé / Cuisinier Traiteur</p>
+
+      <a href="tel:+14388673033" class="btn secondary">📞 Passer un appel</a>
+      <a href="mailto:christiansimo502@gmail.com" class="btn secondary"
+        >📧 Envoyer un mail</a
+      >
+      <a id="saveContact" class="btn primary">📥 Enregistrer mon contact</a>
+    </div>
+
+    <script>
+      // Wait until DOM is fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Christian Simo
+ORG:Chef Privé
+TITLE:Cuisinier Traiteur
+TEL;TYPE=CELL:+14388673033
+EMAIL:christiansimo502@gmail.com
+END:VCARD`;
+
+        const blob = new Blob([vCardData], {
+          type: "text/vcard;charset=utf-8",
+        });
+        const vCardURL = URL.createObjectURL(blob);
+
+        const saveBtn = document.getElementById("saveContact");
+        saveBtn.href = vCardURL;
+        saveBtn.download = "Christian-Simo-Contact.vcf";
+      });
+    </script>
+  </body>
+</html>

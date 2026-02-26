@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Christian Simo | Scan Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #4b1e1e, #7b2d26);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        color: #f5f1e6;
+      }
+
+      .container {
+        animation: fadeIn 1.2s ease forwards;
+        opacity: 0;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-weight: 600;
+        letter-spacing: 2px;
+      }
+
+      #qrcode {
+        position: relative;
+        display: inline-block;
+        padding: 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      /* CS Logo in center */
+      .logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #473c33;
+        color: white;
+        font-weight: bold;
+        font-size: 22px;
+        width: 80px;
+        height: 80px;
+        border-radius: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="qrcode">
+        <div class="logo">SI.CH</div>
+      </div>
+    </div>
+
+    <!-- QR Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+      new QRCode(document.getElementById("qrcode"), {
+        text: "https://trebas.com", // 🔥 CHANGE THIS
+        width: 250,
+        height: 250,
+        colorDark: "#4b1e1e",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    </script>
+  </body>
+</html>
