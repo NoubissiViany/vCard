@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christian Simo - Contact</title>
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
+        padding: 20px;
         font-family: "Segoe UI", sans-serif;
         background: linear-gradient(135deg, #4b1e1e, #7b2d26, #a63d2a);
         color: #f5f1e6;
@@ -18,15 +23,15 @@
       }
 
       .card {
-        background: rgba(255, 248, 230, 0.95);
-        padding: 50px 40px;
+        background: rgba(255, 248, 230, 0.97);
+        padding: clamp(20px, 5vw, 50px);
         border-radius: 20px;
-        width: 90%;
-        max-width: 400px;
+        width: 100%;
+        max-width: 420px;
         box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
         color: #3e2723;
-        animation: fadeInUp 1s ease forwards;
-        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+        transform: translateY(20px);
         opacity: 0;
       }
 
@@ -37,41 +42,36 @@
         }
       }
 
-      /* Subtle floating effect */
-      .card:hover {
-        transform: translateY(-5px);
-        transition: 0.3s ease;
-      }
-
       img {
-        width: 120px;
-        height: 120px;
+        width: clamp(90px, 25vw, 120px);
+        height: clamp(90px, 25vw, 120px);
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: 20px;
-        transform: scale(1.4);
       }
 
       h1 {
         margin: 10px 0 5px;
-        color: black; /* Burgundy */
+        font-size: clamp(20px, 5vw, 28px);
+        color: black;
       }
 
       p {
-        opacity: 0.9;
         margin: 5px 0 20px;
-        color: black; /* Warm brown */
+        color: black;
         font-weight: 500;
+        font-size: clamp(14px, 3.8vw, 16px);
       }
 
       .btn {
         display: block;
         width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 10px;
+        padding: 14px;
+        margin: 12px 0;
+        border-radius: 12px;
         text-decoration: none;
         font-weight: bold;
+        font-size: 16px;
         transition: 0.3s ease;
       }
 
@@ -80,23 +80,30 @@
         color: white;
       }
 
-      .primary:hover {
-        background: #e97a18cd; /* Gold */
-        color: white;
+      .primary:active {
+        transform: scale(0.98);
       }
 
       .secondary {
-        background: #5c1a1b; /* Deep wine */
+        background: #5c1a1b;
         color: #f5f1e6;
       }
 
-      .secondary:hover {
-        background: #7b2d26;
+      .secondary:active {
+        transform: scale(0.98);
       }
 
-      @media (max-width: 480px) {
+      /* Tablet adjustments */
+      @media (min-width: 768px) {
+        body {
+          padding: 40px;
+        }
+      }
+
+      /* Large desktop */
+      @media (min-width: 1200px) {
         .card {
-          padding: 25px;
+          max-width: 450px;
         }
       }
     </style>
@@ -122,7 +129,7 @@
 BEGIN:VCARD
 VERSION:3.0
 FN:Christian Simo
-ORG:Chef Privé
+ORG:Chef Christian
 TITLE:Cuisinier Traiteur
 TEL;TYPE=CELL:+14388673033
 EMAIL:christiansimo502@gmail.com
